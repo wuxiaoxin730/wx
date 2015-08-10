@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Bootstrap</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	</head>
+	<body>
+		<header>
+<ul class="nav nav-tabs">
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Dropdown <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+	    <li><a href="#">Action</a></li>
+	    <li><a href="#">Another action</a></li>
+	    <li><a href="#">Something else here</a></li>
+	    <li><a href="#">Separated link</a></li>
+    </ul>
+  </li>
+</ul>
+		</header>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="row">
+						<div id="cityDisplay" class="col-xs-12 col-sm-12 col-md-12">
+							Guang Zhou
+							<button type="button" class="btn btn-link">
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true" onclick="alert(1)"></span>
+							</button>
+						</div>
+					</div>
+					<div class="row">
+						<div id="timeDisplay" class="col-xs-12 col-sm-12 col-md-12">
+							Wednesday 10:00 AM
+						</div>
+					</div>
+
+					<div class="row">
+						<div id="weatherDesc" class="col-xs-12 col-sm-12 col-md-12">
+							Partly Cloudy
+						</div>
+					</div>
+
+					<br/>
+
+					<div class="row">
+						<div class="col-xs-7 col-sm-7 col-md-5  bg-info">
+							<div class="row">
+								<div class="col-xs-4 col-sm-5 col-md-4">
+									<img src="image/64/partly_cloudy.png" class="img-rounded">
+								</div>
+								<div class="col-xs-3 col-sm-3 col-md-4">
+									<strong class="lead" style="font-size:32pt">28</strong> 
+								</div>
+								<div class="col-xs-5 col-sm-3 col-md-4 col-md-pull-1"> 
+									℃ | ℉
+								</div>
+							</div>
+					  	</div>
+
+					  	<div class="col-xs-5 col-sm-5 col-md-7">
+					  		Precipitation: 31% <div class="clearfix"></div>
+					  		Humidity: 79% <div class="clearfix"></div>
+					  		Wind: 11 km/h <div class="clearfix"></div>
+					  		<br/>
+							<div class="btn-group btn-group-sm" role="group" aria-label="...">
+							  	<button type="button" class="btn btn-default">Temperature</button>
+							  	<button type="button" class="btn btn-default">Precipition</button>
+							  	<button type="button" class="btn btn-default">Wind</button>
+							</div>
+					  	</div>
+					</div>
+
+					<div class="row">
+						<div class="col-ms-12">
+							<div id="main" style="height:300px"></div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-ms-12">
+							<div class="dropdown">
+							  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							    Dropdown
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							    <li><a href="#">Action</a></li>
+							    <li><a href="#">Another action</a></li>
+							    <li><a href="#">Something else here</a></li>
+							    <li><a href="#">Separated link</a></li>
+							  </ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-ms-12">
+							<div class="dropup">
+							  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							    Dropup
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+							    <li><a href="#">Action</a></li>
+							    <li><a href="#">Another action</a></li>
+							    <li><a href="#">Something else here</a></li>
+							    <li><a href="#">Separated link</a></li>
+							  </ul>
+							</div>
+						</div>
+					</div>
+				</div>
+<div class="jumbotron">
+  <h1>Hello, world!</h1>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+				<div class="col-md-7"></div>
+			</div>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="dist/echarts.js"></script>
+		<script type="text/javascript">
+	 		require.config({
+	            paths: {
+	                echarts: 'dist'
+	            }
+	        });
+
+	        require(['echarts','echarts/chart/bar','echarts/chart/line'],function(ec){
+	        	var myChart = ec.init(document.getElementById('main')); 
+
+	        	var option = {
+				    title : {
+				        text: '温度',
+				        subtext: '纯属虚构'
+				    },
+				    tooltip : {
+				        trigger: 'axis'
+				    },
+				    legend: {
+				        data:['温度']
+				    },
+				    calculable : true,
+				    xAxis : [
+				        {
+				            type : 'category',
+				            boundaryGap : false,
+				            data : ['8 PM','11 PM','2 PM','5 PM','8 PM','11 PM','2 PM','5 PM']
+				        }
+				    ],
+				    yAxis : [
+				        {
+				            type : 'value'
+				        }
+				    ],
+				    series : [
+				        {
+				            name:'温度',
+				            type:'line',
+				            smooth:true,
+				            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+				            data:[32, 30, 28, 28, 28, 30, 32,32]
+				        }
+				    ]
+				}; 
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+	        });
+		</script>
+	</body>
+<html>
