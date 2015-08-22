@@ -1,8 +1,0 @@
-iaiddfa;ffd;afa;sdfjdkf
-<<<<<<< HEAD
-I am here!:
-iafi;afj
-dafka;q
-=======
-I am here!:q
->>>>>>> 14e6c1a78bd1ec71d646020df4231bc0c94c0cff
